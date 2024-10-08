@@ -5,6 +5,18 @@
   "alpaca_en_demo": {
     "file_name": "alpaca_en_demo.json"
   },
+  "cmss_cpt":{
+    "file_name":"cpt.json",
+    "columns": {
+    "prompt": "text"
+    }
+  },
+  "code_search_net_cpt":{
+    "file_name":"code_search_net_python_data.json",
+    "columns": {
+    "prompt": "text"
+    }
+  },
   "alpaca_zh_demo": {
     "file_name": "alpaca_zh_demo.json"
   },

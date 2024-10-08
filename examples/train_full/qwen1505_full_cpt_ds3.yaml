@@ -1,0 +1,31 @@
+### model
+model_name_or_path: /workspace/mnt/cmss-wangdepeng/cpt/qwen-ckpts/Qwen1___5-0___5B
+
+### method
+stage: pt
+do_train: true
+finetuning_type: full
+lora_target: all
+
+### dataset
+dataset: code_search_net_cpt
+cutoff_len: 1024
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: /workspace/mnt/cmss-wangdepeng/cpt/qwen-ckpts/Qwen1___5-0___5B_llamafactory_code
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+learning_rate: 5.0e-5
+num_train_epochs: 1
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
