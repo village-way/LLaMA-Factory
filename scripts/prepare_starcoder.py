@@ -7,6 +7,7 @@ from typing import List
 import numpy as np
 from tqdm import tqdm
 from multiprocessing import Process, cpu_count
+import time
 
 # support running without installing as a package
 wd = Path(__file__).parent.parent.resolve()
@@ -22,7 +23,8 @@ def prepare_full(
     process_id: int = 0
 ) -> None:
     destination_path.mkdir(parents=True, exist_ok=True)
-
+    start_time = time.time()
+    print(f"#####{start_time}#####{process_id}####{len(filenames_subset)}")
     # Use the provided filenames_subset or default to all filenames
     filenames = filenames_subset
     
@@ -35,7 +37,7 @@ def prepare_full(
     json_data = []  # Collect all processed text data in memory
 
     for filepath in filenames:
-        print(f"Processing {filepath}")
+        print(f"Processing {filepath}###{process_id}")
         try:
             # Read parquet file and extract 'content' column
             contents = pd.read_parquet(filepath, engine='pyarrow')['content']
@@ -48,9 +50,13 @@ def prepare_full(
 
     # Write the collected JSON data to a single file
     output_filepath = destination_path / f"{split}_data_{process_id}.json"
-    with open(output_filepath, 'w', encoding='utf-8') as f:
-        json.dump(json_data, f, ensure_ascii=False, indent=2)
-
+    try:
+        with open(output_filepath, 'w', encoding='utf-8') as f:
+            json.dump(json_data, f, ensure_ascii=False, indent=2)
+            f.flush()
+    except:
+        print(f"Error writing to {output_filepath}: {e}")
+    
     print(f"Process {process_id} finished processing {len(filenames)} files and wrote {len(json_data)} documents.")
 
 
@@ -61,7 +67,6 @@ def prepare(
     percentage: float = 1.0,
     filenames_subset: List[str] = None,
 ) -> None:
-    import time
 
     filenames = glob.glob(os.path.join(source_path, "*/*.parquet"), recursive=True)
 
@@ -73,9 +78,9 @@ def prepare(
     filenames = filenames[:int(len(filenames) * percentage)]
 
     # Split files across processes
-    num_processes = cpu_count()  # Use available CPU cores
+    num_processes = cpu_count()/2  # Use available CPU cores
     chunked_filenames = np.array_split(filenames, num_processes)
-
+    print(f"total file len : {len(filenames)}, chunked_filenames len: {len(chunked_filenames)}")
     processes = []
     start_time = time.time()
 
