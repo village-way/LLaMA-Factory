@@ -43,6 +43,14 @@ logger = get_logger(__name__)
 def run_exp(args: Optional[Dict[str, Any]] = None, callbacks: List["TrainerCallback"] = []) -> None:
     callbacks.append(LogCallback())
     model_args, data_args, training_args, finetuning_args, generating_args = get_train_args(args)
+    # 打印 JSON 格式的参数
+    print("###################\n")
+    # 打印所有的参数和对应的值
+    print("ModelArguments:", vars(model_args))
+    print("DataArguments:", vars(data_args))
+    print("Seq2SeqTrainingArguments:", vars(training_args))
+    print("FinetuningArguments:", vars(finetuning_args))
+    print("##################\n")
 
     if finetuning_args.stage == "pt":
         run_pt(model_args, data_args, training_args, finetuning_args, callbacks)

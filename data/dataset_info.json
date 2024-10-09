@@ -11,6 +11,18 @@
     "prompt": "text"
     }
   },
+  "starcoder":{
+    "file_name":"/workspace/mnt/cmss-wangdepeng/cpt/datasets/starcoderdata-llamafactory",
+    "columns": {
+    "prompt": "text"
+    }
+  },
+  "SlimPajama_627B":{
+    "file_name":"/workspace/mnt/cmss-wangdepeng/cpt/datasets/SlimPajama-627B-llamafactory",
+    "columns": {
+    "prompt": "text"
+    }
+  },
   "code_search_net_cpt":{
     "file_name":"code_search_net_python_data.json",
     "columns": {
