@@ -24,8 +24,23 @@
     "prompt": "content"
     }
   },
+  "starcoder_tinyllama":{
+    "hf_hub_url":"/workspace/mnt/cmss-wangdepeng/cpt/datasets/starcoderdata-tinyllama",
+    "ms_hub_url":"/workspace/mnt/cmss-wangdepeng/cpt/datasets/starcoderdata-tinyllama",
+    "columns": {
+    "prompt": "content"
+    }
+  },
   "SlimPajama_627B":{
-    "file_name":"/workspace/mnt/cmss-wangdepeng/cpt/datasets/SlimPajama-627B-llamafactory",
+    "hf_hub_url":"/workspace/mnt/cmss-wangdepeng/cpt/datasets/SlimPajama-627B-x/SlimPajama-627B",
+    "ms_hub_url":"/workspace/mnt/cmss-wangdepeng/cpt/datasets/SlimPajama-627B-x/SlimPajama-627B",
+    "columns": {
+    "prompt": "text"
+    }
+  },
+  "proof_pile_2":{
+    "hf_hub_url":"/workspace/mnt/cmss-wangdepeng/cpt/datasets/EleutherAI-proof-pile-2",
+    "ms_hub_url":"/workspace/mnt/cmss-wangdepeng/cpt/datasets/EleutherAI-proof-pile-2",
     "columns": {
     "prompt": "text"
     }

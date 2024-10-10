@@ -6,24 +6,31 @@ stage: pt
 do_train: true
 finetuning_type: full
 lora_target: all
+# shift_attn: true
+deepspeed: examples/deepspeed/ds_z3_offload_config.json
+
 
 ### dataset
-dataset: starcoder_raw
+# dataset: starcoder_raw
+eval_dataset: SlimPajama_627B,starcoder_tinyllama,proof_pile_2
+dataset: SlimPajama_627B,starcoder_tinyllama,proof_pile_2
+mix_strategy: interleave_under
+interleave_probs: 0.75,0.15,0.1
 streaming: true
-max_steps: 1000000
-cutoff_len: 1024
+max_steps: 2861024
+cutoff_len: 4096
 overwrite_cache: true
 preprocessing_num_workers: 192
 
 ### output
 output_dir: /workspace/mnt/cmss-wangdepeng/cpt/qwen-ckpts/tinyllama-v1.0-1T-starcoder-1008
 logging_steps: 1
-save_steps: 500
+save_steps: 100
 plot_loss: true
 overwrite_output_dir: true
 
 ### train
-per_device_train_batch_size: 2
+per_device_train_batch_size: 4
 gradient_accumulation_steps: 8
 learning_rate: 4.0e-4
 num_train_epochs: 1

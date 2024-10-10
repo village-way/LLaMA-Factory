@@ -14,6 +14,7 @@
 
 import os
 import sys
+import zstandard as zstd
 from typing import TYPE_CHECKING, Dict, Literal, Optional, Sequence, Union
 
 import numpy as np
