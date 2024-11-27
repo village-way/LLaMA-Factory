@@ -100,7 +100,8 @@
   },
   "alpaca_en": {
     "hf_hub_url": "llamafactory/alpaca_en",
-    "ms_hub_url": "llamafactory/alpaca_en"
+    "ms_hub_url": "llamafactory/alpaca_en",
+    "om_hub_url": "HaM/alpaca_en"
   },
   "alpaca_zh": {
     "hf_hub_url": "llamafactory/alpaca_zh",
@@ -112,7 +113,8 @@
   },
   "alpaca_gpt4_zh": {
     "hf_hub_url": "llamafactory/alpaca_gpt4_zh",
-    "ms_hub_url": "llamafactory/alpaca_gpt4_zh"
+    "ms_hub_url": "llamafactory/alpaca_gpt4_zh",
+    "om_hub_url": "State_Cloud/alpaca-gpt4-data-zh"
   },
   "glaive_toolcall_en": {
     "hf_hub_url": "llamafactory/glaive_toolcall_en",
@@ -340,6 +342,14 @@
       "response": "answer"
     }
   },
+  "openo1_sft": {
+    "hf_hub_url": "llamafactory/OpenO1-SFT",
+    "ms_hub_url": "llamafactory/OpenO1-SFT",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
   "llava_1k_en": {
     "hf_hub_url": "BUAADreamer/llava-en-zh-2k",
     "subset": "en",
@@ -470,7 +480,7 @@
     }
   },
   "dpo_mix_en": {
-    "hf_hub_url": "hiyouga/DPO-En-Zh-20k",
+    "hf_hub_url": "llamafactory/DPO-En-Zh-20k",
     "subset": "en",
     "ranking": true,
     "formatting": "sharegpt",
@@ -481,7 +491,7 @@
     }
   },
   "dpo_mix_zh": {
-    "hf_hub_url": "hiyouga/DPO-En-Zh-20k",
+    "hf_hub_url": "llamafactory/DPO-En-Zh-20k",
     "subset": "zh",
     "ranking": true,
     "formatting": "sharegpt",
